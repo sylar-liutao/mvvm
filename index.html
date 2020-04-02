@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <p>a的值是:{{a}}</p>
+        <p>b.c的值是:{{b.c}}</p>
+        <input type="text" v-model="a" />
+        <P>{{res}}</P>
+        <P>{{ret}}</P>
+    </div>
+</body>
+<!-- <script src="proxy.js"></script> -->
+<script src="mvvm.js"></script>
+<script>
+    let vue = new Vue({
+        el: "#app",
+        data: {
+            a: 1,
+            b: {
+                c: 2
+            }
+        },
+        computed: {
+            res() {
+                return this.a + "-computed";
+            },
+
+            ret: {
+                get() {
+                    return this.a + "-computed-getter";
+                }
+            }
+        }
+    });
+</script>
+</html>
